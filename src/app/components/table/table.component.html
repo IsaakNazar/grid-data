@@ -1,0 +1,32 @@
+<section class="table">
+  <div class="header">
+    <div [ngStyle]='{gridTemplateColumns: columnsWidth}' class="row">
+      <div
+        *ngFor="let column of headerColumns" class="th">
+        <span class="title">{{column.title}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <div
+      *ngFor="let arr of data"
+      [ngStyle]='{gridTemplateColumns: columnsWidth, height: rowHeight + "px"}'
+      class="row"
+    >
+      <div *ngFor="let item of arr; let i = index" class="td" [ngClass]="headerColumns[i].metricType">
+        <div
+          [class.wrap-text]='columns[headerColumns[i].key].wrapText'
+          [ngStyle]="columns[headerColumns[i].key].valueStyle"
+          [ngClass]="columns[headerColumns[i].key].valueClass"
+        >{{item}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div [ngStyle]='{gridTemplateColumns: columnsWidth, height: rowHeight + "px"}' class="row">
+      <div *ngFor="let column of headerColumns; let i = index" class="td">
+        <div>{{getValue(total, column)}}</div>
+      </div>
+    </div>
+  </div>
+</section>

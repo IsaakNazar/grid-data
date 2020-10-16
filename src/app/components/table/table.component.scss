@@ -1,0 +1,64 @@
+.table {
+  display: grid;
+  grid-template-rows: minmax(0, max-content) minmax(0, 1fr) minmax(0, max-content);
+
+  .header {
+    align-items: center;
+    display: grid;
+    height: 54px;
+  }
+
+  .row {
+    align-items: center;
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  .th {
+    align-items: center;
+    color: dimgray;
+    display: flex;
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  .td {
+    display: flex;
+    padding: 0 8px;
+
+    .wrap-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .body {
+    .row {
+      border-bottom: 1px solid lightgrey;
+      box-sizing: border-box;
+    }
+
+    .absolute {
+      color: #0707e6;
+    }
+
+    .relative {
+      color: #412f55;
+    }
+
+    .money {
+      color: cadetblue;
+    }
+
+    .italic-text {
+      font-style: italic;
+    }
+  }
+
+  .footer {
+    .row {
+      background: dimgray;
+    }
+  }
+}
